@@ -1,0 +1,16 @@
+/\(/        { lval.s = yylex.Text(); return LPAREN }
+/\)/        { lval.s = yylex.Text(); return RPAREN }
+/[0-9]+/    { lval.s = yylex.Text(); return NUMBER }
+/\n/        {}
+/./         {}
+//
+
+package main
+
+import ("os")
+func main() {
+   //txt = func() string { return lex.Text() }
+  yyParse(NewLexer(os.Stdin))
+  /*fmt.Printf("nOpenParans: %d nClosedParans: %d \n", nLines, nChars)
+  fmt.Printf("%d %d\n", nLines, nChars)*/
+}
